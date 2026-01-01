@@ -1,0 +1,20 @@
+
+
+
+import 'package:clean_architecture_idea_app/features/posts/data/models/get_posts_model.dart';
+import 'package:clean_architecture_idea_app/features/posts/domain/entities/post_entity.dart';
+
+class PostModelToDomainMapper
+{
+
+  static PostEntity convertPostModelToEntity(GetPostsModel postsModel)
+  {
+    return PostEntity(
+    postId: postsModel.postId,
+    title: postsModel.title,
+    body: postsModel.body);
+
+  }
+
+
+}
