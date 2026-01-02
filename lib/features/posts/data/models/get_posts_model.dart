@@ -1,10 +1,10 @@
 
 
 
-import 'package:clean_architecture_idea_app/core/common/api_constants.dart';
+import 'package:clean_architecture_idea_app/core/services/api/api_constants.dart';
 import 'package:equatable/equatable.dart';
 
-class GetPostsModel extends Equatable
+class PostsModel extends Equatable
 {
 
   final num userId;
@@ -13,28 +13,28 @@ class GetPostsModel extends Equatable
   final String body;
 
 
-  const GetPostsModel({required this.userId,
+  const PostsModel({required this.userId,
     required this.postId, required this.title,
     required this.body});
 
 
-  factory GetPostsModel.fromJson(Map<String,dynamic> json)
+  factory PostsModel.fromJson(Map<String,dynamic> json)
   {
-    return GetPostsModel(
-        userId: json[ApiConstants.userId],
-        postId: json[ApiConstants.id],
-        title: json[ApiConstants.title],
-        body: json[ApiConstants.body]);
+    return PostsModel(
+        userId: json[ApiKeys.userId],
+        postId: json[ApiKeys.id],
+        title: json[ApiKeys.title],
+        body: json[ApiKeys.body]);
 
   }
 
 
 
   Map<String,dynamic> toJson()=> {
-    ApiConstants.userId : userId,
-    ApiConstants.id : postId,
-    ApiConstants.title : title,
-    ApiConstants.body : body,
+    ApiKeys.userId : userId,
+    ApiKeys.id : postId,
+    ApiKeys.title : title,
+    ApiKeys.body : body,
   };
 
 

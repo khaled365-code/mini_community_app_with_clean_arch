@@ -1,4 +1,5 @@
 import 'package:clean_architecture_idea_app/core/common/bloc_observer.dart';
+import 'package:clean_architecture_idea_app/core/services/internet_connection_checker.dart';
 import 'package:clean_architecture_idea_app/mini_community_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,6 +13,7 @@ void main() async
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
   ]);
+  InternetConnectionService().initialize();
   Bloc.observer=AppBlocObserver();
   runApp(const MiniCommunityApp());
 

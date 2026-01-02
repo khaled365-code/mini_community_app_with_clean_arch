@@ -1,6 +1,6 @@
 
 
-abstract class ApiConstants
+abstract class ApiKeys
 {
 
   static const String userId='userId';

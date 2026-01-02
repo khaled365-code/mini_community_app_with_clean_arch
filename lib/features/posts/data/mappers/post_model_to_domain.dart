@@ -7,7 +7,7 @@ import 'package:clean_architecture_idea_app/features/posts/domain/entities/post_
 class PostModelToDomainMapper
 {
 
-  static PostEntity convertPostModelToEntity(GetPostsModel postsModel)
+  static PostEntity convertPostModelToEntity(PostsModel postsModel)
   {
     return PostEntity(
     postId: postsModel.postId,

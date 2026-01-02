@@ -46,6 +46,8 @@ dependencies:
   dartz: ^0.10.1
   #A composable, multi-platform, Future-based API for HTTP requests
   http: ^1.6.0
+  #A library designed for seamless internet connectivity checks. This library enables you to verify your internet connection and detect slow internet connection.
+  internet_connection_checker: ^3.0.1
 
 dev_dependencies:
   flutter_test:
