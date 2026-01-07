@@ -25,7 +25,7 @@ class InternetConnectionService
   Future<bool> checkConnection() async
   {
     final bool isConnected = await instance.hasConnection;
-    return isConnected? true:throw NetworkException(message: 'No Internet');
+    return isConnected;
   }
 
 

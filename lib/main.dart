@@ -1,4 +1,7 @@
 import 'package:clean_architecture_idea_app/core/common/bloc_observer.dart';
+import 'package:clean_architecture_idea_app/core/di/di.dart';
+import 'package:clean_architecture_idea_app/core/services/cache_service.dart';
+import 'package:clean_architecture_idea_app/core/services/get_random_id_service.dart';
 import 'package:clean_architecture_idea_app/core/services/internet_connection_checker.dart';
 import 'package:clean_architecture_idea_app/mini_community_app.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +17,11 @@ void main() async
     DeviceOrientation.portraitDown
   ]);
   InternetConnectionService().initialize();
-  Bloc.observer=AppBlocObserver();
+  await CacheService().init();
+  setupDi();
   runApp(const MiniCommunityApp());
+  Bloc.observer=AppBlocObserver();
+
 
 }
 

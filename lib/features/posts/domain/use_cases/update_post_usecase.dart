@@ -13,7 +13,7 @@ class UpdatePostUseCase
 
   Future<Either<Failure,Unit>> call({required PostEntity postEntity}) async
   {
-    return await postsRepo.updatePost(postEntity: postEntity);
+    return await postsRepo.updatePost(postEntity: postEntity,);
   }
 
 

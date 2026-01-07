@@ -10,7 +10,7 @@ class PostModelToDomainMapper
   static PostEntity convertPostModelToEntity(PostsModel postsModel)
   {
     return PostEntity(
-    postId: postsModel.postId,
+    postId: postsModel.postId??0,
     title: postsModel.title,
     body: postsModel.body);
 

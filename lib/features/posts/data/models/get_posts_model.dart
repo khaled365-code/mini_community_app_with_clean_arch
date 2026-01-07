@@ -7,14 +7,14 @@ import 'package:equatable/equatable.dart';
 class PostsModel extends Equatable
 {
 
-  final num userId;
-  final num postId;
+  final num? userId;
+  final num? postId;
   final String title;
   final String body;
 
 
-  const PostsModel({required this.userId,
-    required this.postId, required this.title,
+  const PostsModel({this.userId,
+    this.postId, required this.title,
     required this.body});
 
 

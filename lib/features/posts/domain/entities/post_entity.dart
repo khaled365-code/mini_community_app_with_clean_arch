@@ -1,6 +1,9 @@
 
 
 
+import 'package:clean_architecture_idea_app/core/errors/failure.dart';
+import 'package:clean_architecture_idea_app/features/posts/domain/repos/posts_repo.dart';
+import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
 class PostEntity extends Equatable
@@ -16,3 +19,5 @@ class PostEntity extends Equatable
 
 
 }
+
+

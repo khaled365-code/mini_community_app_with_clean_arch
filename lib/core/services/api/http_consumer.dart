@@ -12,70 +12,116 @@ import 'package:http/http.dart' as http;
 class HttpConsumer implements ApiConsumer
 {
 
-  @override
-  Future<dynamic> delete(String path, {Object? data, Map<String, dynamic>? queryParams, bool isFormData = false}) async {
-    try
-    {
-      final response= await http.delete(Uri.parse(path),body: jsonEncode(data));
-      return response.body;
-    } catch (e)
-    {
-      throw ServerException(message: e.toString());
-    }
-  }
+
 
   @override
-  Future<dynamic> get(String path, {Object? data, Map<String, dynamic>? queryParams}) async
+  Future<dynamic> get(String path, {Object? data, Map<String,String>? headers}) async
   {
     try
     {
-      final response= await http.get(Uri.parse(path));
-      return response.body;
-    } catch (e)
+       final response= await http.get(Uri.parse(path),headers: headers);
+       if(response.statusCode>=200 && response.statusCode<300)
+         {
+           return response.body;
+         }
+       else
+         {
+           throw ServerException(message: 'Error ${response.statusCode} ${response.body}');
+         }
+     } catch (e)
     {
       throw ServerException(message: e.toString());
     }
 
 
+
   }
 
   @override
-  Future<dynamic> patch(String path, {Object? data, Map<String, dynamic>? queryParams, bool isFormData = false}) async {
+  Future<dynamic> patch(String path, {Object? data, Map<String,String>? headers, bool isFormData = false}) async {
+
     try
     {
-      final response= await http.patch(Uri.parse(path),body: jsonEncode(data));
-      return response.body;
-    } catch (e)
+      final response= await http.patch(Uri.parse(path), body: jsonEncode(data),headers: headers);
+      if(response.statusCode>=200 && response.statusCode<300)
+        {
+          return response.body;
+        }
+      else
+        {
+          throw ServerException(message: 'Error ${response.statusCode} ${response.body}');
+        }
+    }
+    catch (e)
     {
       throw ServerException(message: e.toString());
     }
+
   }
 
   @override
-  Future<dynamic> post(String path, {Object? data, Map<String, dynamic>? queryParams, bool isFormData = false})  async
+  Future<dynamic> post(String path, {Object? data, Map<String,String>? headers, bool isFormData = false})  async
   {
     try
     {
-      final response= await http.post(Uri.parse(path),body: jsonEncode(data));
-      return response.body;
-    } catch (e)
+      final response= await http.post(Uri.parse(path),body: jsonEncode(data),headers: headers);
+      if(response.statusCode>=200 && response.statusCode<300)
+      {
+        return response.body;
+      }
+      else
+      {
+        throw ServerException(message: 'Error ${response.statusCode} ${response.body}');
+      }
+    }
+    catch (e)
     {
       throw ServerException(message: e.toString());
     }
   }
 
   @override
-  Future<dynamic> put(String path, {Object? data, Map<String, dynamic>? queryParams, bool isFormData = false}) async {
+  Future<String> put(String path, {Object? data, Map<String, String>? headers, bool isFormData = false}) async {
+
     try
     {
-      final response= await http.put(Uri.parse(path),body: jsonEncode(data));
-      return response.body;
-    } catch (e)
+      final response= await http.put(Uri.parse(path),body: jsonEncode(data),headers: headers);
+      if(response.statusCode>=200 && response.statusCode<300)
+      {
+        return response.body;
+      }
+      else
+      {
+        throw ServerException(message: 'Error ${response.statusCode} ${response.body}');
+      }
+    }
+    catch (e)
+    {
+      throw ServerException(message: e.toString());
+    }
+
+  }
+
+  @override
+  Future<String> delete(String path, {Object? data, Map<String, String>? headers, bool isFormData = false}) async
+  {
+    try
+    {
+      final response= await http.delete(Uri.parse(path),body: jsonEncode(data),headers: headers);
+      if(response.statusCode>=200 && response.statusCode<300)
+      {
+        return response.body;
+      }
+      else
+      {
+        throw ServerException(message: 'Error ${response.statusCode} ${response.body}');
+      }
+    }
+    catch (e)
     {
       throw ServerException(message: e.toString());
     }
   }
-
 
 
 
